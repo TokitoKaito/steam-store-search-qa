@@ -4,6 +4,8 @@ Manual testing of the search functionality of the Steam store (`store.steampower
 
 A full manual testing cycle on a live public product: test plan → checklist → test cases → defect reports.
 
+Companion project: [steam-web-api-postman](https://github.com/TokitoKaito/steam-web-api-postman) — API-level testing of the same product with Postman: 6 requests, 26 assertions.
+
 ## Findings
 
 Four defects were found. Three of them share a single trigger but are separate defects: they affect different environments and require different fixes.
