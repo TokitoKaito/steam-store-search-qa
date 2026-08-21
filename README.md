@@ -51,4 +51,4 @@ On a real product both would be clarified with the requirements owner. Recording
 
 ## Author
 
-Daniil, steepdan2003@gmail.com
+Daniil, danya.desimus@gmail.com, https://www.linkedin.com/in/daniil-demchenko-qa/
