@@ -67,7 +67,7 @@ UI element names are quoted in the original Ukrainian, with an English gloss in 
 
 ---
 
-## TC-004 — A query consisting only of double quotes is handled without a server error
+## TC-004 — A query consisting only of double quotes is handled without an error page
 
 **Preconditions:** store.steampowered.com/search is open, no filters applied
 
@@ -81,7 +81,7 @@ UI element names are quoted in the original Ukrainian, with an English gloss in 
 4. Enter the query witcher in the same field and press Enter
 5. Repeat steps 1-4 for the three-quote query: """
 
-**Expected result:** no server error message is displayed; "Результатів вашого пошуку: 0" [Your search returned 0 results] is shown, as it is for the other special characters; the search field remains operable and the control query in step 4 is processed normally
+**Expected result:** no error page is displayed; "Результатів вашого пошуку: 0" [Your search returned 0 results] is shown, as it is for the other special characters; the search field remains operable and the control query in step 4 is processed normally
 
 **Priority:** Low
 

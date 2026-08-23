@@ -14,9 +14,9 @@ Four defects were found. Three of them share a single trigger but are separate d
 
 | ID | Title | Severity | Priority | Affects |
 |---|---|---|---|---|
-| [BUG-001](bug-reports/bug-report-001.md) | Store search returns a server error for a query consisting only of an odd number of double quotes | Medium | Medium | Client + browsers |
-| [BUG-002](bug-reports/bug-report-002.md) | Site header is duplicated inside the search results area on a server error | Low | Medium | Browsers only |
-| [BUG-003](bug-reports/bug-report-003.md) | After a server error, search on the results page stops working and is not restored by refreshing | Medium | Medium | Client + browsers |
+| [BUG-001](bug-reports/bug-report-001.md) | Store search fails with an error page for a query consisting only of an odd number of double quotes | Medium | Medium | Client + browsers |
+| [BUG-002](bug-reports/bug-report-002.md) | Site header is duplicated inside the search results area when the search request fails | Low | Medium | Browsers only |
+| [BUG-003](bug-reports/bug-report-003.md) | After a failed search request, search on the results page stops working and is not restored by refreshing | Medium | Medium | Client + browsers |
 | [BUG-004](bug-reports/bug-report-004.md) | Price filter "Безкоштовно" [free] returns a paid game in the results | Low | Medium | Client + browsers |
 
 ## Artifacts

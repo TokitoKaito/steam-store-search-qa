@@ -1,4 +1,4 @@
-# BUG-001 — Store search returns a server error for a query consisting only of an odd number of double quotes
+# BUG-001 — Store search fails with an error page for a query consisting only of an odd number of double quotes
 
 | | |
 |---|---|
@@ -17,18 +17,18 @@
 
 ## Expected
 
-The character is handled correctly — the query returns an empty result set, "Результатів вашого пошуку: 0" [Your search returned 0 results], as it does for the other special characters, or the character is escaped. No server error should occur.
+The character is handled correctly — the query returns an empty result set, "Результатів вашого пошуку: 0" [Your search returned 0 results], as it does for the other special characters, or the character is escaped. The request must not fail, and the response must not report success for a failed request.
 
 ## Actual
 
-Instead of results, an error page is returned:
+The server responds with **HTTP 200 OK** and returns an error page instead of search results:
 "От халепа! Під час обробки вашого запиту сталася помилка: Виникла проблема під час спроби з'єднатися із серверами Steam. Будь ласка, спробуйте знову пізніше."
 [Oops! An error occurred while processing your request: There was a problem connecting to the Steam servers. Please try again later.]
 
 ## Severity and priority rationale
 
 - **Severity: Medium** — the server returns an error instead of handling user input on a key store function; no correct result can be obtained for such a query.
-- **Priority: Medium** — the scenario is rare (a query consisting entirely of quotes; a real user is unlikely to type this), but a server error on user input may indicate unescaped input, which is worth checking without delay.
+- **Priority: Medium** — the scenario is rare (a query consisting entirely of quotes; a real user is unlikely to type this), but a failure on user input may indicate unescaped input, which is worth checking without delay. Additionally, the request is answered with 200 OK, so failures on this endpoint are invisible to monitoring; that makes the error handling worth reviewing beyond this particular query.
 
 ## Notes
 
@@ -40,6 +40,8 @@ Instead of results, an error page is returned:
   - a double quote after a word (witcher + quote): handled correctly
 - the query is written into the page URL in encoded form (term=%22), so refreshing the page (F5) repeats the same query and returns the error again.
 - the character breaks the request to the server — a possible sign of unescaped user input; the development team may want to check for injection.
+- the failed request is answered with **HTTP 200 OK**. The status line reports success while the body is an error page, so nothing on the client side receives a signal that the request failed. Two consequences follow: the front end injects the response into the results container as if it were valid content (see BUG-002), and the failure is invisible to any monitoring, alerting or automated check that relies on the response status.
+- reproduced anonymously from a different network, without a Steam session and outside the Steam client: the same error page is returned. The defect does not depend on the account, the interface language, the browser or an active session.
 - the consequences of this error are described separately: the results page layout breaking — BUG-002; search becoming unusable after the error — BUG-003.
 
 ## Attachments
