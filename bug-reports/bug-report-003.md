@@ -35,9 +35,9 @@ step 5 — refreshing does not restore operation. The query containing the quote
 
 ## Notes
 
-- the behaviour of the page after the defect occurs is unstable. Some subsequent actions restore search, others do not:  
-  — searching via the "Пошук" [Search] button sometimes works, but stops after the next press of Enter;  
-  — clicking outside the input field and back into it before pressing Enter — the query is processed;  
-  — a query that returns no results (for example, "афаумймйфм") clears the error.  
+- the behaviour of the page after the defect occurs is unstable, and no stable recovery condition could be identified. Some subsequent actions restore search, others do not:
+  - searching via the "Пошук" [Search] button sometimes works, but stops after the next press of Enter
+  - clicking outside the input field and back into it before pressing Enter: the query is processed
+  - a query that returns no results (for example, "афаумймйфм") clears the error
   No stable recovery condition could be identified.
 - observed on the same server error as the one described in BUG-001. In browsers, BUG-002 additionally occurs.
