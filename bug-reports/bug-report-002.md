@@ -34,6 +34,7 @@ A separate Steam error page is inserted into the results area in full, together 
 
 - reproduces in at least two browsers (Opera GX, Edge) — the defect is not browser-specific.
 - in the Steam client the header is not duplicated on the same error.
+- the defect depends on how the request is made. Loading the URL directly (store.steampowered.com/search/?term=%22) returns the error page as the whole document, with the page title "Site Error" and no duplication. Submitting the same query from an already-open results page returns the same full error page as an AJAX response, which is injected into the results container as-is, including its own header. The response carries HTTP 200 OK (see BUG-001), so the front end has no signal that it is handling an error.
 
 ## Attachments
 
