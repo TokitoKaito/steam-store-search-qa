@@ -32,12 +32,12 @@ Instead of results, an error page is returned:
 
 ## Notes
 
-- the error is triggered only by a query consisting entirely of an odd number of double quotes. Variants tested:  
-  — one double quote — error;  
-  — three double quotes in a row — error;  
-  — two double quotes in a row — handled correctly;  
-  — a double quote before a word (quote + witcher) — handled correctly;  
-  — a double quote after a word (witcher + quote) — handled correctly.
+- the error is triggered only by a query consisting entirely of an odd number of double quotes. Variants tested:
+  - one double quote: error
+  - three double quotes in a row: error
+  - two double quotes in a row: handled correctly
+  - a double quote before a word (quote + witcher): handled correctly
+  - a double quote after a word (witcher + quote): handled correctly
 - the query is written into the page URL in encoded form (term=%22), so refreshing the page (F5) repeats the same query and returns the error again.
 - the character breaks the request to the server — a possible sign of unescaped user input; the development team may want to check for injection.
 - the consequences of this error are described separately: the results page layout breaking — BUG-002; search becoming unusable after the error — BUG-003.
