@@ -28,6 +28,14 @@ Four defects were found. Three of them share a single trigger but are separate d
 | [Test cases](test-cases.md) | 14 test cases with steps, test data and expected results |
 | [Bug reports](bug-reports/) | 4 defect reports with steps to reproduce and screenshots |
 
+## Defect tracking
+
+The same four defects are also tracked in Jira, with priority, attachments
+and a workflow that separates "the developer considers it fixed" from
+"the tester has verified it": To Do → In Progress → Ready for Retest → Done.
+
+![Jira board](screenshots/jira-board.png)
+
 ## Scope
 
 **In scope:** the search box and navigation to the results page; relevance of results to the query; the price, language, tag and OS filters; the 7 sorting options; loading further results on scroll; the contents of a result card.
