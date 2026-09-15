@@ -1,16 +1,16 @@
-# QA Portfolio — Steam Store Search
+# QA Portfolio: Steam Store Search
 
 Manual testing of the search functionality of the Steam store (`store.steampowered.com/search`): query handling, result output, filters and sorting.
 
 A full manual testing cycle on a live public product: test plan → checklist → test cases → defect reports.
 
-Companion project: [steam-web-api-postman](https://github.com/TokitoKaito/steam-web-api-postman) — API-level testing of the same product with Postman: 6 requests, 26 assertions.
+Companion project: [steam-web-api-postman](https://github.com/TokitoKaito/steam-web-api-postman). API-level testing of the same product with Postman: 6 requests, 26 assertions.
 
-Companion project: [sql-data-quality-detectors](https://github.com/TokitoKaito/sql-data-quality-detectors) — data-layer testing: 12 SQL detectors for data integrity defects.
+Companion project: [sql-data-quality-detectors](https://github.com/TokitoKaito/sql-data-quality-detectors). Data-layer testing: 12 SQL detectors for data integrity defects.
 
 ## Findings
 
-Four defects were found. Three of them share a single trigger but are separate defects: they affect different environments and require different fixes.
+I found four defects. Three of them share a single trigger but are separate defects: they affect different environments and require different fixes.
 
 | ID | Title | Severity | Priority | Affects |
 |---|---|---|---|---|
@@ -50,12 +50,12 @@ The account interface language is Ukrainian, so UI element names are quoted in t
 
 ## Notes on method
 
-Two observations are recorded as open questions rather than as passes or failures, because the expected behaviour is not defined anywhere and there was nothing to compare the observed result against:
+I recorded two observations as open questions rather than as passes or failures, because the expected behaviour is not defined anywhere and there was nothing to compare the observed result against:
 
-- **Partial-word search:** `witcher` finds the game, `witc` does not, `wit` returns unrelated products. The matching rule is unknown, so the check is marked **Blocked** rather than guessed at.
+- **Partial-word search:** `witcher` finds the game, `witc` does not, `wit` returns unrelated products. The matching rule is unknown, so I marked the check **Blocked** rather than guessing at it.
 - **Language filter and DLC:** DLC that do not list the selected language are not removed from the results. Whether that is intended is a product decision.
 
-On a real product both would be clarified with the requirements owner. Recording them honestly is more useful than inventing an expected result.
+On a real product I would take both to the requirements owner instead of inventing an expected result.
 
 ## Author
 
